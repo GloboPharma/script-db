@@ -1,0 +1,7 @@
+
+# Padrão: <tipo>: <Descrição iniciando com maiúscula> - Chamado GLPI: <número>
+# Exemplo: feat: Criação do relatório de consulta de lotes excluídos no BEAS - Chamado GLPI: 21113
+#
+# Tipos: feat | fix | refactor | docs | chore
+# - Espaço após os dois-pontos, sem escopo entre parênteses, sem ponto final
+# - Omita " - Chamado GLPI: ..." se não houver chamado
