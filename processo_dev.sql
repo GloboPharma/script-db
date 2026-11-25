@@ -48,9 +48,7 @@ WHERE
     AND IFNULL(O0."CANCELED", 'N') = 'N'
     AND O0."DocStatus" = 'O'
     AND O0."DocDate" >= TO_DATE('2024-01-01', 'YYYY-MM-DD')
-
 UNION ALL
-
 /* 2) PEDIDO DE DEVOLUÇÃO GERADO E ABERTO (PARADO NA EXPEDIÇÃO) */
 SELECT
     'Pedido de Devolução' AS "Etapa Atual do Fluxo",
@@ -98,9 +96,7 @@ WHERE
     AND L."LineStatus" = 'O'
     AND DL."DocEntry" IS NULL
     AND O."DocDate" >= TO_DATE('2024-01-01', 'YYYY-MM-DD')
-
 UNION ALL
-
 /* 3) DOCUMENTO DE DEVOLUÇÃO GERADO (PARADO NO FISCAL) */
 SELECT
     'Documento de Devolução' AS "Etapa Atual do Fluxo",
@@ -153,9 +149,7 @@ WHERE
     AND D."DocStatus" = 'O'
     AND CML."DocEntry" IS NULL
     AND O."DocDate" >= TO_DATE('2024-01-01', 'YYYY-MM-DD')
-
 UNION ALL
-
 /* 4) NF DE DEVOLUÇÃO GERADA (EM ANDAMENTO OU CONCLUÍDA) */
 SELECT
     'NF de Devolução' AS "Etapa Atual do Fluxo",
@@ -225,9 +219,7 @@ WHERE
     AND D."CANCELED" = 'N'
     AND CM."CANCELED" = 'N'
     AND O."DocDate" >= TO_DATE('2024-01-01', 'YYYY-MM-DD')
-
 UNION ALL
-
 /* 5) PEDIDO ENCERRADO SEM DEVOLUÇÃO (CANCELADO/FECHADO) */
 SELECT
     'Pedido de Devolução' AS "Etapa Atual do Fluxo",
